@@ -18,7 +18,7 @@ doc = Nokogiri::HTML.parse body
 if doc
   innerdiv = doc.css "div.wrap_dccone > div.content > div#pop_wrap > div#package_detail > div.inner"
   srcstring = innerdiv.css "div:nth-of-type(1) > div.icon_view > div.mandoo_info_box > strong:nth-of-type(1) > span.name"
-  dcconpkg_title = srcstring.text.tr! " ", "_"
+  dcconpkg_title = srcstring.text.tr " ", "_"
   Dir.mkdir dcconpkg_title, 755 unless Dir.exist? dcconpkg_title
   puts "Downloading. This may take a while..."
   innerdiv.css("ul.Img_box > li").each do |dccon|
